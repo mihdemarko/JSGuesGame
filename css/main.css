@@ -1,0 +1,170 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+h1 {
+  align-self: center;
+  font-size: 3em;
+  color: rgb(240,50,50);
+}
+
+h2 {
+  align-self: center;
+  font-size: 2em;
+  color: rgb(240,100,50);
+}
+
+h3 {
+  align-self: center;
+  font-size: 3.5em;
+  color: rgb(50,150,50);
+}
+
+.text-wrap{
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  flex-direction:column;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content:space-around;
+}
+.text {
+  width: 40%;
+  text-align: center;
+  font-size: 2em;
+  padding-left: 40px;
+}
+
+.text + .text{
+  text-align: left;
+}
+
+.game-field {
+  width: 280px;
+  height: 280px;
+  background-color: rgb(200,200,200);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content:space-around;
+  border: 20px solid rgb(200,200,200);
+  border-radius: 30px;
+}
+
+.cards {
+  background-color: rgb(150,230,230);
+  border-radius: 10px;
+}
+
+.cards:hover {
+  background-color: rgb(180,230,230);
+  border-radius: 10px;
+}
+
+@keyframes disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+
+.cards[data-active]{
+  pointer-events: none;
+  animation-name: disappear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+img[data-active]{
+  display: none;
+}
+
+@media only screen and (min-width: 768px){
+  .game-field {
+    width: 700px;
+    height: 700px;
+  }
+}
+
+.button {
+  width: 280px;
+  height: 70px;
+  align-self:center;
+  font-size: 3em;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #4CAF50;
+  outline:none;
+}
