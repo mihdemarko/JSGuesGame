@@ -100,23 +100,30 @@ h1 {
   align-self: center;
   font-size: 3em;
   color: rgb(240,50,50);
+  text-shadow: 5px 5px 7px rgb(190,0,0);
+  transform: perspective(200px) rotateX(40deg);
 }
 
 h2 {
   align-self: center;
   font-size: 2em;
   color: rgb(240,100,50);
+  text-shadow: 4px 4px 6px rgb(190,50,0);
+  transform: perspective(200px) rotateX(40deg);
 }
 
 h3 {
   align-self: center;
   font-size: 3.5em;
-  color: rgb(50,150,50);
+  color: rgb(255,255,150);
+  text-shadow: 5px 5px 7px rgb(205,205,100);
+  transform: perspective(200px) rotateX(40deg);
 }
 
 h4 {
-  color: rgb(230,230,255);
-  text-shadow: 2px 2px 3px rgb(180,180,255);
+  color: rgb(255,255,150);
+  text-shadow: 2px 2px 3px rgb(205,205,100);
+  transform: perspective(200px) rotateX(40deg);
 }
 
 .count-remain{
