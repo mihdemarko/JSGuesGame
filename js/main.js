@@ -136,6 +136,7 @@ GameField.prototype.mouseEvents = function (event) {
         console.log(this.cardsNum);
       }
       target.childNodes[0].removeAttribute('data-active');
+      console.log(this.activeCount);
       this.activeCount += 1;
       this.blaster.currentTime = 0;
       this.blaster.volume = 0.2;
@@ -223,12 +224,12 @@ GameField.prototype.gameOver = function (status) {
     text.innerHTML = 'You Won!';
     textWrap.appendChild(text);
   }
-  this.activeCount = 0;
   this.cantina.pause();
   var butts = new Buttons('field');
   this.field.appendChild(textWrap);
+  this.activeCount = -1;
   butts.createButton('AGAIN?').addEvent('click', function () {
-    gameField.clearField().start().addEvent('click', gameField.mouseEvents).counter();
+    gameField.clearField().start().counter();
   });
 }
 
