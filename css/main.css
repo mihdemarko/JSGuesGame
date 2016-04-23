@@ -47,6 +47,28 @@ table {
 
 
 
+@keyframes disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes appear {
+    from {width: 0;
+          margin-left: 50%;
+          -webkit-filter:brightness(6);
+          filter:brightness(6);
+        }
+    to {width: 100%;
+        margin-left:0;
+        display: initial;
+        -webkit-filter:brightness(1);
+        filter:brightness(1);
+        }
+}
+
+
+
+
 html {
   height: 100%;
 }
@@ -84,6 +106,14 @@ h3 {
   color: rgb(50,150,50);
 }
 
+
+.count-remain{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+}
+
+
 .text-wrap{
   display: flex;
   align-self: center;
@@ -100,10 +130,11 @@ h3 {
   align-content:space-around;
 }
 .text {
-  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
   text-align: center;
   font-size: 2em;
-  padding-left: 40px;
 }
 
 .text + .text{
@@ -126,17 +157,20 @@ h3 {
 .cards {
   background-color: rgb(150,230,230);
   border-radius: 10px;
+  transition: all .2s ease-in-out;
+  box-shadow: 5px 5px 3px grey;
 }
 
 .cards:hover {
   background-color: rgb(180,230,230);
   border-radius: 10px;
+  animation-name: mouseOn;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  transform: scale(1.05);
 }
 
-@keyframes disappear {
-    from {opacity: 1;}
-    to {opacity: 0;}
-}
+
 
 
 .cards[data-active]{
@@ -150,11 +184,10 @@ img[data-active]{
   display: none;
 }
 
-@media only screen and (min-width: 768px){
-  .game-field {
-    width: 700px;
-    height: 700px;
-  }
+img {
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .button {
@@ -167,4 +200,14 @@ img[data-active]{
   text-decoration: none;
   background-color: #4CAF50;
   outline:none;
+}
+
+@media only screen and (min-width: 768px){
+  .game-field {
+    width: 700px;
+    height: 700px;
+  }
+  .text {
+    width: 700px;
+  }
 }

@@ -89,7 +89,7 @@ GameField.prototype._makeCards = function (width, height) {
       this.field.appendChild(div);
     }.bind(this))
   }.bind(this))
-  var text = document.querySelectorAll('.text')[1];
+  var text = document.querySelectorAll('h4')[1];
   this.cardsNum = document.querySelectorAll('img').length
   text.innerHTML = 'Remain: ' + this.cardsNum;
 }
@@ -101,7 +101,7 @@ GameField.prototype.addEvent = function (eventName, func) {
 
 GameField.prototype.mouseEvents = function (event) {
   var target = event.target;
-  var text = document.querySelectorAll('.text')[1];
+  var text = document.querySelectorAll('h4')[1];
   while (target && target !== document.body) {
     if (target && target.className == 'cards') {
       if (this.activeCount === 2) {
@@ -172,7 +172,7 @@ GameField.prototype.clearField = function () {
 
 GameField.prototype.counter = function () {
   var n = 100;
-  var element = document.querySelectorAll('.text')[0];
+  var element = document.querySelectorAll('h4')[0];
   var test = function () {
     this.clearField();
     this.gameOver('lost');
