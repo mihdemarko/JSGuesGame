@@ -22,16 +22,19 @@ function range(start, end, step) {
 function GameField(fieldId) {
   this.field = document.querySelector('#' + fieldId);
   this.activeCount = 0;
-  this.PICTURE_URLS = ['https://kde.link/test/1.png',
-    'https://kde.link/test/2.png',
-    'https://kde.link/test/9.png',
-    'https://kde.link/test/7.png',
-    'https://kde.link/test/6.png',
-    'https://kde.link/test/3.png',
-    'https://kde.link/test/4.png',
-    'https://kde.link/test/0.png',
-    'https://kde.link/test/5.png',
-    'https://kde.link/test/8.png',
+  this.cantina = new Audio('music/cantina.mp3');
+  this.lightSaber = new Audio('music/light-saber.mp3');
+  this.blaster = new Audio('music/blaster.mp3');
+  this.PICTURE_URLS = ['pics/avatar01.gif',
+    'pics/avatar02.gif',
+    'pics/avatar03.gif',
+    'pics/avatar30.gif',
+    'pics/avatar31.gif',
+    'pics/avatar32.gif',
+    'pics/avatar48.gif',
+    'pics/avatar47.gif',
+    'pics/avatar50.gif',
+    'pics/avatar73.gif',
   ]
 }
 
@@ -61,6 +64,8 @@ GameField.prototype.start = function () {
   this.getJSONData('https://kde.link/test/get_field_size.php', function (data) {
     var data = JSON.parse(data);
     this._makeCards(data.width, data.height);
+    this.cantina.currentTime = 0;
+    this.cantina.play();
   }.bind(this))
   return this
 }
@@ -121,6 +126,9 @@ GameField.prototype.mouseEvents = function (event) {
         this.lastTarget.setAttribute('data-active', '');
         this.cardsNum -= 2;
         text.innerHTML = 'Remain: ' + this.cardsNum;
+        this.lightSaber.currentTime = 0;
+        this.lightSaber.volume = 0.2;
+        this.lightSaber.play();
         if (this.cardsNum === 0) {
           this.clearField();
           this.gameOver('won');
@@ -129,6 +137,9 @@ GameField.prototype.mouseEvents = function (event) {
       }
       target.childNodes[0].removeAttribute('data-active');
       this.activeCount += 1;
+      this.blaster.currentTime = 0;
+      this.blaster.volume = 0.2;
+      this.blaster.play();
       this.lastTarget = target;
       return;
     }
@@ -212,6 +223,8 @@ GameField.prototype.gameOver = function (status) {
     text.innerHTML = 'You Won!';
     textWrap.appendChild(text);
   }
+  this.activeCount = 0;
+  this.cantina.pause();
   var butts = new Buttons('field');
   this.field.appendChild(textWrap);
   butts.createButton('AGAIN?').addEvent('click', function () {
