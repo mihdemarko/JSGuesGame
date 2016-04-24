@@ -1,0 +1,238 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+
+@keyframes disappear {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes appear {
+    from {width: 0;
+          margin-left: 50%;
+          -webkit-filter:brightness(6);
+          filter:brightness(6);
+        }
+    to {width: 100%;
+        margin-left:0;
+        display: initial;
+        -webkit-filter:brightness(1);
+        filter:brightness(1);
+        }
+}
+
+
+
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(0,0,0);
+  background: rgb(34,43,58);
+  background: -moz-linear-gradient(top,  rgba(34,43,58,1) 0%, rgba(68,107,147,1) 83%, rgba(181,231,255,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(34,43,58,1) 0%,rgba(68,107,147,1) 83%,rgba(181,231,255,1) 100%);
+  background: linear-gradient(to bottom,  rgba(34,43,58,1) 0%,rgba(68,107,147,1) 83%,rgba(181,231,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222b3a', endColorstr='#b5e7ff',GradientType=0 );
+
+
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+h1 {
+  align-self: center;
+  font-size: 3em;
+  color: rgb(240,50,50);
+  text-shadow: 5px 5px 7px rgb(190,0,0);
+  transform: perspective(200px) rotateX(40deg);
+}
+
+h2 {
+  align-self: center;
+  font-size: 2em;
+  color: rgb(240,100,50);
+  text-shadow: 4px 4px 6px rgb(190,50,0);
+  transform: perspective(200px) rotateX(40deg);
+}
+
+h3 {
+  align-self: center;
+  font-size: 3.5em;
+  color: rgb(255,255,150);
+  text-shadow: 5px 5px 7px rgb(205,205,100);
+  transform: perspective(200px) rotateX(40deg);
+}
+
+h4 {
+  color: rgb(255,255,150);
+  text-shadow: 2px 2px 3px rgb(205,205,100);
+  transform: perspective(200px) rotateX(40deg);
+}
+
+.count-remain{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+}
+
+
+.text-wrap{
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  flex-direction:column;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content:space-around;
+
+}
+.text {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  text-align: center;
+  font-size: 2em;
+}
+
+.text + .text{
+  text-align: left;
+}
+
+.game-field {
+  width: 280px;
+  height: 280px;
+  background-image:url('../pics/space.jpg');
+  background-size:cover;
+  background-color: rgb(0,0,20);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content:space-around;
+  border: 20px solid rgb(0,0,20);
+  border-radius: 30px;
+  box-shadow: 20px 10px 50px rgb(20,20,20);
+}
+
+.cards {
+  background-image:url('../pics/avatar49.gif');
+  background-size:cover;
+  background-color: rgb(150,230,230);
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+  box-shadow: 5px 5px 3px rgb(0,0,20);
+}
+
+.cards:hover {
+  background-color: rgb(180,230,230);
+  border-radius: 10px;
+  animation-name: mouseOn;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  transform: scale(1.05);
+}
+
+
+
+
+.cards[data-active]{
+  pointer-events: none;
+  animation-name: disappear;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+img[data-active]{
+  display: none;
+}
+
+img {
+  animation-name: appear;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.button {
+  width: 280px;
+  height: 70px;
+  align-self:center;
+  font-size: 3em;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #4CAF50;
+  outline:none;
+}
+
+@media only screen and (min-width: 768px){
+  .game-field {
+    width: 700px;
+    height: 700px;
+  }
+  .text {
+    width: 700px;
+  }
+}
