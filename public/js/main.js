@@ -217,6 +217,7 @@ GameField.prototype.counter = function () {
 
 GameField.prototype.gameOver = function (status) {
   var textWrap = document.createElement('div');
+  var buttText = 'Again?';
   textWrap.className = 'text-wrap';
   this.activeCount = 0;
   if (status === 'lost') {
@@ -235,12 +236,13 @@ GameField.prototype.gameOver = function (status) {
     text.innerHTML = 'You Won!';
     textWrap.appendChild(text);
     this.level += 1;
+    buttText = 'Next?'
   }
   this.cantina.pause();
   var butts = new Buttons('field');
   this.field.appendChild(textWrap);
   this.activeCount = -1;
-  butts.createButton('AGAIN?').addEvent('click', function () {
+  butts.createButton(buttText).addEvent('click', function () {
     gameField.clearField().start().counter();
   });
 }
