@@ -50,7 +50,7 @@ var createField = function (n) {
 }
 
 app.get('/field', function (req, res) {
-  var level = parseInt(/level\=(.)/.exec(req.url)[1]);
+  var level = parseInt(/level\=(\d+)/.exec(req.url)[1]);
   res.send(JSON.stringify(createField(level)));
 });
 
